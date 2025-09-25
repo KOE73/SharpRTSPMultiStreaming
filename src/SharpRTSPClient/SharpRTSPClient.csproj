@@ -5,6 +5,7 @@
 	  <LangVersion>13.0</LangVersion>
 	  <OutputType>Library</OutputType>
 	  <CodeContractsAssemblyMode>0</CodeContractsAssemblyMode>
+	  <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

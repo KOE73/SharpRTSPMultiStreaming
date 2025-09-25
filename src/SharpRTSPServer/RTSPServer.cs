@@ -16,7 +16,7 @@ using System.Threading;
 namespace SharpRTSPServer
 {
     /// <summary>
-    /// RTSP Server Example (c) Roger Hardiman, 2016, 2018, 2020, modified by Lukas Volf, 2024
+    /// RTSP Server Example (connection) Roger Hardiman, 2016, 2018, 2020, modified by Lukas Volf, 2024
     /// Released uder the MIT Open Source Licence
     ///
     /// Re-uses some code from the Multiplexer example of SharpRTSP
@@ -509,7 +509,7 @@ namespace SharpRTSPServer
             sdp.Append("v=0\n");
             sdp.Append("o=user 123 0 IN IP4 0.0.0.0\n");
             sdp.Append($"s={SessionName}\n");
-            sdp.Append("c=IN IP4 0.0.0.0\n");
+            sdp.Append("connection=IN IP4 0.0.0.0\n");
 
             // VIDEO
             VideoTrack?.BuildSDP(sdp);
@@ -557,7 +557,7 @@ namespace SharpRTSPServer
                 var timeOut = now.AddSeconds(-RTSP_TIMEOUT);
 
                 // Convert to Array to allow us to delete from rtsp_list
-                foreach (RTSPConnection connection in _connectionList.Where(c => timeOut > c.TimeSinceLastRtspKeepAlive).ToArray())
+                foreach (RTSPConnection connection in _connectionList.Where(connection => timeOut > connection.TimeSinceLastRtspKeepAlive).ToArray())
                 {
                     _logger.LogDebug("Removing session {sessionId} due to TIMEOUT", connection.SessionId);
                     RemoveSession(connection);

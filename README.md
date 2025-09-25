@@ -1,17 +1,26 @@
+﻿
+
 # SharpRTSP wrapper
-This is just a thin wrapper around the fantastic SharpRTSP, mostly based off their sample code with some API enhancements to make it easier to use. Added support for streaming Opus, AV1 and H266.
 
-## SharpRTSPClient
-Simple RTSP client that supports H264, H265, H266, AV1 for video + AAC, Opus, PCMU and PCMA for audio.
+This project is based on [SharpRealTimeStreaming](https://github.com/jimm98y/SharpRealTimeStreaming),  
+which itself is a thin wrapper around the fantastic [SharpRTSP](https://github.com/ngraziano/SharpRTSP).
 
-## SharpRTSPServer
-Simple RTSP server that supports H264, H265, H266, AV1 for video and AAC, Opus, PCMU and PCMA for audio. 
+The main addition here is **SharpRTSPServerMulti** —  
+a simple RTSP server that supports multiple streams, each mapped to its own URI.
 
-## FFmpeg RTSP Server
-Sample RTSP server for ffmpeg RTP streams. Fully configurable in appsettings.json.
-
-## Pcap RTSP Server
-PoC of re-playing RTSP from a Wireshark PcapNg file. 
+## Components
+### New
+- **SharpRTSPServerMulti** — RTSP server with multi-URI support (multiple streams).
+- **RTSPServerMultiApp** — Demo.
+ 
+### From SharpRealTimeStreaming
+- **SharpRTSPClient** — Simple RTSP client with support for H264, H265, H266, AV1 video and AAC, Opus, PCMU, PCMA audio.
+- **SharpRTSPServer** — Simple RTSP server (single stream).
+- **FFmpeg RTSP Server** — Sample RTSP server for FFmpeg RTP streams (configurable via `appsettings.json`).
+- **Pcap RTSP Server** — Proof-of-concept for replaying RTSP from a Wireshark PcapNg file.
 
 ## Credits
-Most of the work has been done by SharpRTSP (https://github.com/ngraziano/SharpRTSP), this is just a convenience wrapper around it.
+
+- Most of the heavy lifting is done by [SharpRTSP](https://github.com/ngraziano/SharpRTSP).  
+- The original wrapper is [SharpRealTimeStreaming](https://github.com/jimm98y/SharpRealTimeStreaming).  
+- This fork adds **SharpRTSPServerMulti** for multi-stream URI support.
