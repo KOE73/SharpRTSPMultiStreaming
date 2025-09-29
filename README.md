@@ -10,7 +10,7 @@ a simple RTSP server that supports multiple streams, each mapped to its own URI.
 
 ## Components
 ### New
-- **SharpRTSPServerMulti** — RTSP server with multi-URI support (multiple streams).
+- **SharpRTSPServerMulti** — RTSP server with multi-URI support (multiple streams), e.g. rtsp://ip/Cam1, rtsp://ip/Cam2 etc.
 - **RTSPServerMultiApp** — Demo.
  
 ### From SharpRealTimeStreaming
